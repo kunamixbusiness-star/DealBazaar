@@ -1,9 +1,13 @@
+const path = require('path');
 const express = require('express');
 const cors = require('cors');
 const app = express();
 const PORT = 5000;
 
 app.use(cors());
+app.get('/', (req, res) => {
+  res.sendFile(path.join(__dirname, 'index.html'));
+});
 
 app.get('/api/deals', (req, res) => {
   res.json([
